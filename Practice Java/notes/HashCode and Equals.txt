@@ -1,0 +1,35 @@
+Hashing:
+- When you add an element to a HashSet, the hashCode method of that element is called. The hashCode method returns an integer value that represents the hash code of the object.
+- The hash code is used to determine the bucket location in the hash table where the element will be stored. Buckets are like compartments or slots in the hash table.
+
+Equals method:
+- If two elements have the same hash code (i.e., they end up in the same bucket), the equals method is used to check for actual equality.
+Employee e1 = new Employee(1, "name1", 101)
+Employee e2 = e2;  
+
+e1 and e2 have the same hashcode so they are putting under same bucket
+
+- The equals method is used to compare the contents of the objects. If the equals method returns true, the HashSet considers the objects equal and doesn't allow duplicates.
+- If the equals method returns false, it means that the objects have the same hash code but are not equal in terms of content. In such cases, the HashSet can handle collisions by storing these elements in the same bucket using a data structure like a linked list or a tree.
+
+        Employee e1 = new Employee(1, "name1", 101);
+		Employee e2 = e1;
+		Employee e3 = new Employee(3, "name1", 101);
+		Employee e4 = new Employee(2, "name2", 101);
+		
+		Here hashcode generated upon department id so all having same hashcode
+		
+		initially e1 and e2 have same reference so equals methods return  true so only e1 added to set
+		then e3 e2 e1 compared e3 memory is different so default equals methods return true so for
+		that we have to override the object class equals method to search content inside object
+		e3 state is diff so set added e3
+		
+
+
+Handling Collisions:
+- If two elements end up in the same bucket due to a hash code collision, the HashSet handles this situation by using a linked list or a tree (depending on the implementation and the size of the bucket) to store multiple elements in the same bucket.
+- When looking for an element, the equals method is used to identify the correct element within the bucket.
+
+Performance:
+- The performance of a HashSet depends on the quality of the hashCode implementation. A good hash code function distributes elements across buckets evenly, minimizing collisions and improving performance.
+- The HashSet class provides constant-time performance for basic operations such as add, remove, contains, and so on, assuming a good hash function and proper load factor.

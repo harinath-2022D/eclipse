@@ -1,0 +1,22 @@
+\l --> showing databases
+
+create database emp --> create database
+
+\connect emp   ---> use database emp
+
+\d      ---> list of tables available in curr database
+
+create table employee (
+emp_id int not null,
+emp_name char(30),
+emp_dept int
+primary key(emp_id)
+)            --> create table in shell
+
+\d employee --> showing all the columns in table
+
+drop table employee --> delete table 
+
+if you want to delete curr database for that you need to change database first like using command \connect databasName
+
+drop database emp ---> deletes database completely
